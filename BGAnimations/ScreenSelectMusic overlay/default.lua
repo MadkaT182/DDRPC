@@ -25,4 +25,7 @@ return Def.ActorFrame{
 		end;
 		CurrentSongChangedMessageCommand=cmd(playcommand,"Refresh");
 	};
+
+	LoadActor("CollectionText")..{ OnCommand=cmd(x,SCREEN_CENTER_X-165;y,SCREEN_CENTER_Y+173;SetTextureFiltering,false); },
+	LoadActor("MusicText")..{ OnCommand=cmd(x,SCREEN_CENTER_X-187;y,SCREEN_CENTER_Y+194;SetTextureFiltering,false); },
 }
