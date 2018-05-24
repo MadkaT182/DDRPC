@@ -28,7 +28,7 @@ end
 
 stages[#stages+1] = LoadActor("_stage Frame") .. {
 	OnCommand=cmd(y,10);
-	Condition=not GAMESTATE:IsDemonstration();
+	Condition=not GAMESTATE:IsDemonstration() and not GAMESTATE:IsEventMode();
 }
 
 return stages;
