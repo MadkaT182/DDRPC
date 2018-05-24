@@ -45,10 +45,10 @@ for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 				self:queuecommand("Anim")
 			end;
 			AnimCommand=function(self)
-				self:sleep(0.866)
+				self:sleep((2/GAMESTATE:GetSongBPS()))
 				self:accelerate(0.066)
 				self:addy(-8)
-				self:sleep(0.066)
+				self:sleep(0.066/GAMESTATE:GetSongBPS())
 				self:accelerate(0.066)
 				self:addy(8)
 				self:queuecommand("Anim")
