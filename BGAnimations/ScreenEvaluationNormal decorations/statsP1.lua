@@ -14,6 +14,16 @@ local Boo = string.format("% 5d",STATSMAN:GetCurStageStats():GetPlayerStageStats
 local MarvEnabled = PREFSMAN:GetPreference("AllowW1");
 local MFix = -22;
 
+--New record
+--Personal
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetPersonalHighScoreIndex() == 0) then
+	NewRec1 = 1
+end
+--Machine
+if (STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):GetMachineHighScoreIndex() == 0) then
+	NewRec1 = 1
+end
+
 if MarvEnabled == "AllowW1_Everywhere" then
 	--Marvelous--
 	t[#t+1] = LoadFont("_resultNum")..{
@@ -152,11 +162,25 @@ t[#t+1] = Def.RollingNumbers {
 	end;
 };
 
-
 -- DDR PC Exclusive stuff
 -- Dance Code
 t[#t+1] = LoadFont("_system1")..{
 	Text="*PASSWORD";
 	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-30;addx,-215;diffuse,color("#0078F8");horizalign,left;zoom,.846);
 };
+
+--Random codes ^_^
+if ((NewRec1 == 1) and (GAMESTATE:IsHumanPlayer(PLAYER_1))) then
+	t[#t+1] = Def.ActorFrame {
+		LoadFont("_resultLbl") .. {
+			InitCommand=cmd(y,SCREEN_CENTER_Y-6;addx,-216);
+			OnCommand=function(self)
+				self:horizalign(left);
+				self:diffuse(color("#FFF700"));
+				self:settext(code_line().."\n"..code_line());
+			end;
+		};
+	}
+end
+
 return t;

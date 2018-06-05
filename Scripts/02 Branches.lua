@@ -202,6 +202,11 @@ Branch = {
 			local allFailed = STATSMAN:GetCurStageStats():AllFailed()
 			local song = GAMESTATE:GetCurrentSong()
 
+			--Skip Extra stages
+			if GAMESTATE:IsAnExtraStage() then
+				return "ScreenProfileSaveSummary"
+			end
+
 			if GAMESTATE:IsEventMode() or stagesLeft >= 1 then
 				return "ScreenProfileSave"
 			elseif song:IsLong() and maxStages <= 2 and stagesLeft < 1 and allFailed then
