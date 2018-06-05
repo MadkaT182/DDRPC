@@ -1,6 +1,6 @@
 return Def.ActorFrame{
 	LoadFont("SelMusic")..{
-		OnCommand=cmd(x,SCREEN_RIGHT-18;y,SCREEN_BOTTOM-65;horizalign,right);
+		OnCommand=cmd(x,SCREEN_RIGHT-18;y,SCREEN_BOTTOM-65;horizalign,right;maxwidth,470);
 		RefreshCommand=function(self)
 			local song = GAMESTATE:GetCurrentSong();
 			if song then
@@ -9,11 +9,11 @@ return Def.ActorFrame{
 			else
 				self:settext("");
 			end
-		end;	
+		end;
 		CurrentSongChangedMessageCommand=cmd(playcommand,"Refresh");
 	};
 	LoadFont("SelMusic")..{
-		OnCommand=cmd(x,SCREEN_RIGHT-18;y,SCREEN_BOTTOM-50;horizalign,right);
+		OnCommand=cmd(x,SCREEN_RIGHT-18;y,SCREEN_BOTTOM-50;horizalign,right;maxwidth,470);
 		RefreshCommand=function(self)
 			local song = GAMESTATE:GetCurrentSong();
 			if song then
