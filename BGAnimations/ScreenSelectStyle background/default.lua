@@ -1,5 +1,5 @@
 return Def.ActorFrame {
 	LoadActor("stylebg")..{
-		OnCommand=cmd(FullScreen);
+		OnCommand=cmd(Center);
 	};
 }
