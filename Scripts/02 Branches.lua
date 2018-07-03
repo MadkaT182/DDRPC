@@ -115,11 +115,13 @@ Branch = {
 		elseif STATSMAN:GetCurStageStats():AllFailed() then
 			return GameOverOrContinue()
 		elseif GAMESTATE:GetSmallestNumStagesLeftForAnyHumanPlayer() == 0 then
-			if not GAMESTATE:IsCourseMode() then
-				return "ScreenEvaluationSummary"
-			else
+			-- Ther is not summary screen in the original game
+			--TODO: Clean this
+			-- if not GAMESTATE:IsCourseMode() then
+			-- 	return "ScreenEvaluationSummary"
+			-- else
 				return GameOverOrContinue()
-			end
+			--end
 		else
 			return SelectMusicOrCourse()
 		end
