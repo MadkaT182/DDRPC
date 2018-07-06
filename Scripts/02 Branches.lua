@@ -21,7 +21,11 @@ function GameOverOrContinue()
 	if THEME:GetMetric("ScreenContinue", "ContinueEnabled") then
 		return "ScreenContinue"
 	else
-		return "ScreenGameOver"
+		if STATSMAN:GetCurStageStats():AllFailed() then
+			return "ScreenGameOver"
+		else
+			return "ScreenCredits"
+		end
 	end
 end
 

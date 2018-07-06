@@ -1,5 +1,4 @@
 local pChar = GAMESTATE:GetCharacter(GAMESTATE:GetMasterPlayerNumber()):GetCharacterID();
-local pChar = "Astro";
 
 local t = Def.ActorFrame{};
 
