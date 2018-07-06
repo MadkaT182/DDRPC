@@ -121,12 +121,26 @@ t[#t+1] = LoadFont("_resultNum")..{
 	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-180;addx,52;horizalign,right;);
 	OnCommand=function(self)
 		self:settextf(Combo);
+		if STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):FullCombo() then
+				self:textglowmode('TextGlowMode_Inner');
+				self:diffuseblink();
+				self:effectperiod(.067);
+				self:effectcolor1(1,1,0,1);
+				self:effectcolor2(1,1,1,1);
+		end
 	end;
 };
 t[#t+1] = LoadFont("_resultLbl")..{
 	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-180;addx,-216;horizalign,left;diffuse,color("#E00058"));
 	OnCommand=function(self)
 		self:settextf("MAX COMBO");
+		if STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_2):FullCombo() then
+				self:textglowmode('TextGlowMode_Inner');
+				self:diffuseblink();
+				self:effectperiod(.067);
+				self:effectcolor1(1,1,0,1);
+				self:effectcolor2(1,0,.4,1);
+		end
 	end;
 };
 --Stage Stats
